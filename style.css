@@ -375,6 +375,9 @@ th:last-child{
     text-align: right;
 }
 
+.lbutton{
+    background-color: #957571;
+}
 .button{
     
     background-color: #ff523b;

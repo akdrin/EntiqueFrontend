@@ -12,6 +12,9 @@ header{
     height: 150px;
     position: relative;
 }
+
+
+}
 overlay{
     position: absolute;
     z-index: 1;
@@ -57,6 +60,11 @@ li a{
     vertical-align: bottom;
     font-size: 20px;
     padding-right: 5px;
+}
+
+.head1{
+    border-radius: 20 px;
+
 }
 .cart a{
     background-color: royalblue;
@@ -207,4 +215,50 @@ li a{
 .name{
     display: flex;
     align-items: center;
+}
+/* Antique theme colors */
+:root {
+    --entique-brown: #0886c9; /* Warm, earthy brown */
+    --entique-gold: #d4af37;  /* Antique gold */
+    --entique-cream: #f5f1e6; /* Creamy background */
+}
+
+/* Style for the checkout section */
+.checkout-section {
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    align-items:center; /* Align button to the left */
+    margin-top: 40px; /* Give more space above the button */
+    padding: 20px;
+     ;
+}
+.checkout-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+/* Checkout Button Styling with Entique colors */
+.checkout-btn {
+    background-color: var(--entique-brown); /* Antique brown */
+    color: var(--entique-cream); /* Creamy white text */
+    padding: 12px 24px; /* Larger padding for a premium feel */
+    font-size: 18px; /* Slightly larger text */
+    border: 2px solid var(--entique-gold); /* Gold border */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    border-radius: 8px; /* Rounded edges */
+    font-family: 'Georgia', serif; /* Classic font for antique feel */
+    position: absolute;
+    left: 20px; /* Positioned towards the bottom-left */
+    bottom: 10px;
+}
+
+/* Hover effect for the button */
+.checkout-btn:hover {
+    background-color: var(--entique-gold); /* Antique gold on hover */
+    color: var(--entique-brown); /* Swap text color to brown */
+    transform: translateY(-3px); /* Slight lift on hover */
 }

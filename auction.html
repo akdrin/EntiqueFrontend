@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="auctioncss.css">
         <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
         <title>Entiqué | Auctions</title>
     </head>
@@ -14,8 +15,9 @@
             <nav>
                 <h1>Auction</h1>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="product.html">All Products</a></li>
+                    <li class="head1"><a href="dashboard.html">Home</a></li>
+                    <li class="head1"><a href="product.html">All Products</a></li>
+                    
                     <li class="cart">
                         <a href="cart.html">
                             <ion-icon name="basket"></ion-icon>Cart<span></span>
@@ -24,9 +26,79 @@
                 </ul>
             </nav>
         </header>
-<div class="acimg">
-       <img src="images/auctionimg.png" alt="">
-    </div>
+
+        <div class="auction-container">
+            <h1>Entique Auction</h1>
+        
+            <div class="auction-item">
+              <h2>Drepster Vanity Wood Carving Dressing Table Design</h2>
+              <img src="images/AntiqueDefinition2-ci-102417-683x1024.jpg" alt="Dressing Table Image">
+              <h4>Description</h4>
+              <h5>
+                Sleep like royalty with this collection. The Vanity Set with Mirror is inspired by old European design, featuring a carved scrollwork accent on the headboard. This piece crafted in wood features ample storage, beveled mirror, and brown copper finish hardware. Enjoy a royal sensation in the bedroom.
+                <br><br>
+                Overall: 78'' H X 67'' W X 21'' D <br>
+                Mirror: 47'' H X 48'' W X 4'' D <br>
+                Seat/Bench: 19'' H
+              </h5>
+              <p>Current highest bid: ₹<span id="current-bid">100</span></p>
+            </div>
+        
+            <div class="bid-section">
+              <label for="bid-amount">Enter your bid:</label>
+              <input type="number" id="bid-amount" min="101">
+              <button onclick="placeBid()">Place Bid</button>
+            </div>
+        
+            <p class="highest-bid">Highest Bid: ₹<span id="highest-bid">100</span></p>
+        
+            <div class="timer">
+              Auction ends in: <span id="timer">00:01:00</span>
+            </div>
+          </div>
+        
+          <script>
+            let currentBid = 100;
+            let auctionDuration = 60; // Auction duration in seconds
+        
+            function updateTimer() {
+              const timerElement = document.getElementById('timer');
+              let minutes = Math.floor(auctionDuration / 60);
+              let seconds = auctionDuration % 60;
+        
+              if (seconds < 10) seconds = '0' + seconds;
+              if (minutes < 10) minutes = '0' + minutes;
+        
+              timerElement.textContent = `00:${minutes}:${seconds}`;
+        
+              if (auctionDuration > 0) {
+                auctionDuration--;
+                setTimeout(updateTimer, 1000);
+              } else {
+                alert('Auction has ended!');
+                document.getElementById('bid-amount').disabled = true;
+                document.querySelector('.bid-section button').disabled = true;
+              }
+            }
+        
+            function placeBid() {
+              const bidAmount = document.getElementById('bid-amount').value;
+              if (bidAmount > currentBid && auctionDuration > 0) {
+                currentBid = bidAmount;
+                document.getElementById('current-bid').innerText = currentBid;
+                document.getElementById('highest-bid').innerText = currentBid;
+                alert('Bid placed successfully!');
+              } else if (auctionDuration <= 0) {
+                alert('Auction has ended! No more bids allowed.');
+              } else {
+                alert('Your bid must be higher than the current highest bid.');
+              }
+            }
+        
+            // Start the timer
+            updateTimer();
+          </script>
+               
 
     </body>
     <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>

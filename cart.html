@@ -14,7 +14,7 @@
             <nav>
                 <h2>All Products</h2>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="dashboard.html">Home</a></li>
                     <li><a href="product.html">All Products</a></li>
                     <li class="cart">
                         <a href="cart.html">
@@ -36,6 +36,18 @@
                 
             </div>
         </div>
+          
+  <div class="checkout-box">  <!-- Checkout Button Section -->
+<div class="checkout-section">
+    <button class="checkout-btn" onclick="redirectToCheckout()">Checkout</button>
+</div></div>
+
+<script>
+    function redirectToCheckout() {
+        window.location.href = 'address.html';
+    }
+</script>
+
 
     </body>
     <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
